@@ -7,9 +7,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{E907293B-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4F372EEA-A4FE-44DE-9A68-BF52C892AFE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenDeepSpace.NetCore.Hangfire.Demo", "demo\OpenDeepSpace.NetCore.Hangfire.Demo\OpenDeepSpace.NetCore.Hangfire.Demo.csproj", "{FB9DE88C-D12C-403A-9BCF-953362C0FC86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenDeepSpace.NetCore.Hangfire", "src\OpenDeepSpace.NetCore.Hangfire\OpenDeepSpace.NetCore.Hangfire.csproj", "{67FC2F0F-086F-459A-8616-28AA8633AE79}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB9DE88C-D12C-403A-9BCF-953362C0FC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB9DE88C-D12C-403A-9BCF-953362C0FC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9DE88C-D12C-403A-9BCF-953362C0FC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9DE88C-D12C-403A-9BCF-953362C0FC86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67FC2F0F-086F-459A-8616-28AA8633AE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67FC2F0F-086F-459A-8616-28AA8633AE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67FC2F0F-086F-459A-8616-28AA8633AE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67FC2F0F-086F-459A-8616-28AA8633AE79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB9DE88C-D12C-403A-9BCF-953362C0FC86} = {E907293B-8392-4866-9650-ADB8E4A9781A}
+		{67FC2F0F-086F-459A-8616-28AA8633AE79} = {4F372EEA-A4FE-44DE-9A68-BF52C892AFE8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9AF9D7E3-629E-4B33-BEA1-12520C712EBE}
