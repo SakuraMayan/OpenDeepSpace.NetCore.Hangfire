@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
     <Nullable>enable</Nullable>
+
+	  <PackageId>OpenDeepSpace.NetCore.Hangfire</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>OpenDeepSpace</Authors>
+	  <Company>OpenDeepSpaceTech</Company>
+	  <Product>OpenDeepSpaceNetCoreHangfire</Product>
+	  <Description>netcore下的Hangfire循环Job特性化处理以及参数化job的依赖注入和job执行结果的处理主要涉及job执行成功和执行失败可通知化,Job持久化过期时间设置</Description>
+	  <Copyright>MIT</Copyright>
+	  <PackageProjectUrl>https://github.com/SakuraMayan/OpenDeepSpace.NetCore.Hangfire</PackageProjectUrl>
   </PropertyGroup>
 
 
