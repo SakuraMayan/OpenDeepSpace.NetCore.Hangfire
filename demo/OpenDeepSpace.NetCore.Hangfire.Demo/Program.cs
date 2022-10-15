@@ -1,6 +1,7 @@
 using Hangfire;
 using Hangfire.MySql;
 using OpenDeepSpace.NetCore.Hangfire;
+using OpenDeepSpace.NetCore.Hangfire.Demo.Jobs;
 using OpenDeepSpace.NetCore.Hangfire.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,6 +43,8 @@ builder.Services.AddHangfireServer(opt =>
 builder.Services.RegisterParametricJobs();
 //添加JobState状态监控 用于成功或失败执行结果的处理
 GlobalJobFilters.Filters.Add(new JobStateFilter(builder.Services));
+//注入Job成功失败的处理实现
+builder.Services.AddTransient<IJobExecuteResultHandler, JobExecuteResultHandler>();
 //设置成功执行的Job持久化时间
 GlobalStateHandlers.Handlers.Add(new SucceededJobExpiredHandler());
 
