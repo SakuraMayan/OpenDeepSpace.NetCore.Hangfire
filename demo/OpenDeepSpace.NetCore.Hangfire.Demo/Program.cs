@@ -58,8 +58,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//添加控制面板选项 设置权限 需要登录才能访问控制面板
+DashboardOptions dashboardOptions = new DashboardOptions();
+dashboardOptions.Authorization = new[] { new BasicAuthorizationFilter("wy", "wy.023") };
 //使用控制面板
-app.UseHangfireDashboard();
+app.UseHangfireDashboard(options:dashboardOptions);
 
 app.UseAuthorization();
 
