@@ -14,6 +14,13 @@ namespace OpenDeepSpace.NetCore.Hangfire.Demo
     /// </summary>
     public class JobOne : AsyncBackgroundJob<JobOneArgs>
     {
+        private IScopedService _service;
+
+        public JobOne(IScopedService service)
+        {
+            _service = service;
+        }
+
         [JobDisplayName("第一个Job")]
         public async override Task ExecuteAsync(JobOneArgs args)
         {
@@ -29,5 +36,6 @@ namespace OpenDeepSpace.NetCore.Hangfire.Demo
     [BackgroundJobName("JobOne额")]
     public class JobOneArgs
     {
+        public int i { get; set; }
     }
 }

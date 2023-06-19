@@ -1,6 +1,7 @@
 using Hangfire;
 using Hangfire.MySql;
 using OpenDeepSpace.NetCore.Hangfire;
+using OpenDeepSpace.NetCore.Hangfire.Demo;
 using OpenDeepSpace.NetCore.Hangfire.Demo.Jobs;
 using OpenDeepSpace.NetCore.Hangfire.Extensions;
 
@@ -48,6 +49,7 @@ builder.Services.AddTransient<IJobExecuteResultHandler, JobExecuteResultHandler>
 //设置成功执行的Job持久化时间
 GlobalStateHandlers.Handlers.Add(new SucceededJobExpiredHandler());
 
+builder.Services.AddTransient<IScopedService, ScopedService>();
 
 var app = builder.Build();
 

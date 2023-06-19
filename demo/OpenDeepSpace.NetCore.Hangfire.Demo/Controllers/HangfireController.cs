@@ -12,11 +12,14 @@ namespace OpenDeepSpace.NetCore.Hangfire.Demo.Controllers
     public class HangfireController : ControllerBase
     {
 
+        private readonly IScopedService _service;
+
         private readonly IBackgroundJobManager backgroundJobManager;
 
-        public HangfireController(IBackgroundJobManager backgroundJobManager)
+        public HangfireController(IBackgroundJobManager backgroundJobManager, IScopedService service)
         {
             this.backgroundJobManager = backgroundJobManager;
+            this._service = service;
         }
 
         /// <summary>
@@ -28,19 +31,19 @@ namespace OpenDeepSpace.NetCore.Hangfire.Demo.Controllers
             //触发一次
             await backgroundJobManager.EnqueueAsync(new JobOneArgs()
             {
+                i = 100
+            }) ;
 
-            });
+            //string job = BackgroundJob.Enqueue(() => Console.WriteLine("haha"));
+            //BackgroundJob.ContinueJobWith(job, () => Console.WriteLine("hahs"));
 
-            string job = BackgroundJob.Enqueue(() => Console.WriteLine("haha"));
-            BackgroundJob.ContinueJobWith(job, () => Console.WriteLine("hahs"));
+            //string jobOne = await backgroundJobManager.EnqueueAsync(new JobOneArgs());
 
-            string jobOne = await backgroundJobManager.EnqueueAsync(new JobOneArgs());
+            //await backgroundJobManager.ContinueJobWith(jobOne, new JobOneArgs());
 
-            await backgroundJobManager.ContinueJobWith(jobOne, new JobOneArgs());
+            //await backgroundJobManager.EnqueueAsync(new JobOneArgs(), TimeSpan.FromSeconds(30));
 
-            await backgroundJobManager.EnqueueAsync(new JobOneArgs(), TimeSpan.FromSeconds(30));
-
-            await backgroundJobManager.EnqueueAsync(new JobOneArgs(), "JobOne周期", "0 */1 * * * ?");
+            //await backgroundJobManager.EnqueueAsync(new JobOneArgs(), "JobOne周期", "0 */1 * * * ?");
 
         }
 
