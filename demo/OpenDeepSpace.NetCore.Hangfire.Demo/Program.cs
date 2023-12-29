@@ -26,7 +26,7 @@ builder.Services.AddHangfire(
 			}));
 
 			//注册使用了RecurringJobAttribute特性的周期性Job
-			opt.RegisterRecurringJobs();
+			opt.RegisterRecurringJobs(new List<System.Reflection.Assembly>() { typeof(RecurringJob).Assembly});
 
 		}
 	);
@@ -41,7 +41,7 @@ builder.Services.AddHangfireServer(opt =>
 });
 
 //注册参数化Job
-builder.Services.RegisterParametricJobs();
+builder.Services.RegisterParametricJobs(new List<System.Reflection.Assembly>() { typeof(RecurringJob).Assembly });
 //添加JobState状态监控 用于成功或失败执行结果的处理
 GlobalJobFilters.Filters.Add(new JobStateFilter(builder.Services));
 //注入Job成功失败的处理实现
